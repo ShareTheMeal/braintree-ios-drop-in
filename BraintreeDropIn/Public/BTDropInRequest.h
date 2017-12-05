@@ -36,8 +36,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// Optional: Use this parameter to disable Apple Pay. Otherwise if Apple Pay is correctly configured, Apple Pay will appear as a selection in the Payment Method options.
 @property (nonatomic, assign) BOOL applePayDisabled;
 
-/// Optional: Use this parameter to disable PayPal. Otherwise if PayPal is correctly configured, PayPal will appear as a selection in the Payment Method options.
+/// Defaults to false. Set to true to hide the PayPal option even if enabled for your account.
 @property (nonatomic, assign) BOOL paypalDisabled;
+
+/// Defaults to false. Set to true to hide the Venmo option even if enabled for your account.
+@property (nonatomic, assign) BOOL venmoDisabled;
 
 /// Optional: If true and an amount is set, ThreeDSecure will be used to verify the card. ThreeDSecure must be enabled in the control panel.
 /// Defaults to false.
