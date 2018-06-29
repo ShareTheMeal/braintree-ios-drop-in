@@ -1,5 +1,34 @@
 # Braintree iOS Drop-in SDK - Release Notes
 
+## 6.2.0 (2018-05-16)
+
+* Add card validation error alert when validation fails
+* Fix transition animation issues with main Drop-in view
+
+## 6.1.0 (2018-02-21)
+
+* Add support to mask security code text field
+* Fix issue that caused supported card types to be displayed more than once
+* UI fixes and improved iPhone X support. Thanks @shpuntov
+
+## 6.0.1 (2018-02-08)
+
+* Fix code for implicit retain self warning
+
+## 6.0.0 (2018-02-07)
+
+* Fix empty payment method nonce and error in result for PayPal and Venmo flows
+* Update 3DS integration to support browser switch
+  - Drop-in will now return a `BTCardNonce` instead of a `BTThreeDSecureNonce`
+  - The 3DS info can be access via the `threeDSecureInfo` property on a `BTCardNonce`
+
+## 5.3.0 (2017-12-05)
+
+* Add support for manually disabling PayPal and Venmo in Drop-in
+* Fix issue that caused errors to not be returned in the Venmo and PayPal flows
+* Update translation for scanning a card number with the camera
+* Improve iOS 11 and iPhone X support
+
 ## 5.2.3 (2017-09-29)
 
 * Update MasterCard and Maestro logos

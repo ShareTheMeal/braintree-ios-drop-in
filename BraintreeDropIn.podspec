@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BraintreeDropIn"
-  s.version          = "15.2.4"
+  s.version          = "16.2.0"
   s.summary          = "Braintree v.zero: A modern foundation for accepting payments (with ShareTheMeal-specific modifications)"
   s.description      = <<-DESC
                        Braintree is a full-stack payments platform for developers
@@ -27,9 +27,10 @@ Pod::Spec.new do |s|
     s.source_files  = "BraintreeDropIn/**/*.{h,m}"
     s.public_header_files = "BraintreeDropIn/Public/*.h"
     s.frameworks = "UIKit"
-    s.dependency "Braintree/Card", "~> 4.0"
-    s.dependency "Braintree/Core", "~> 4.0"
-    s.dependency "Braintree/UnionPay", "~> 4.0"
+    s.dependency "Braintree/Card", "~> 4.11"
+    s.dependency "Braintree/Core", "~> 4.11"
+    s.dependency "Braintree/UnionPay", "~> 4.11"
+    s.dependency "Braintree/PaymentFlow", "~> 4.11"
     s.dependency "BraintreeDropIn/UIKit"
   end
 

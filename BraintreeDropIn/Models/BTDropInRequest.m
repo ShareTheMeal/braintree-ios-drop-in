@@ -19,6 +19,7 @@
     request.venmoDisabled = self.venmoDisabled;
     request.threeDSecureVerification = self.threeDSecureVerification;
 	request.shouldTokenize = self.shouldTokenize;
+    request.shouldMaskSecurityCode = self.shouldMaskSecurityCode;
     return request;
 }
 
