@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BraintreeDropIn"
-  s.version          = "16.2.0"
+  s.version          = "16.2.1"
   s.summary          = "Braintree v.zero: A modern foundation for accepting payments (with ShareTheMeal-specific modifications)"
   s.description      = <<-DESC
                        Braintree is a full-stack payments platform for developers

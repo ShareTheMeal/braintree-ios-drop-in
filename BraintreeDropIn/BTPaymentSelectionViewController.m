@@ -194,6 +194,17 @@
     NSMutableArray *activePaymentOptions = [@[] mutableCopy];
     if (!error) {
         [self fetchPaymentMethodsOnCompletion:^{
+			
+#ifdef __BT_APPLE_PAY
+			BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
+			if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled) {
+				// Short-circuits if BraintreeApplePay is not available at runtime
+				if (__BT_AVAILABLE(@"BTApplePayClient")) {
+					[activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
+				}
+			}
+#endif
+			
             if ([[BTTokenizationService sharedService] isTypeAvailable:@"PayPal"] && [self.configuration.json[@"paypalEnabled"] isTrue] && !self.dropInRequest.paypalDisabled) {
                 [activePaymentOptions addObject:@(BTUIKPaymentOptionTypePayPal)];
             }
@@ -217,16 +228,6 @@
                 }
             }
 
-#ifdef __BT_APPLE_PAY
-            BTJSON *applePayConfiguration = self.configuration.json[@"applePay"];
-            if ([applePayConfiguration[@"status"] isString] && ![[applePayConfiguration[@"status"] asString] isEqualToString:@"off"] && !self.dropInRequest.applePayDisabled) {
-                // Short-circuits if BraintreeApplePay is not available at runtime
-                if (__BT_AVAILABLE(@"BTApplePayClient")) {
-                    [activePaymentOptions addObject:@(BTUIKPaymentOptionTypeApplePay)];
-                }
-            }
-#endif
-            
             self.paymentOptionsData = [activePaymentOptions copy];
             [self.savedPaymentMethodsCollectionView reloadData];
             [self.paymentOptionsTableView reloadData];
